@@ -38,3 +38,5 @@ jobs:
       jdk: openjdk8
       if: branch = release AND repo = env(MAIN_REPO) AND type = push
       script: bash scripts/travis-release.sh
+after_success:
+  - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
